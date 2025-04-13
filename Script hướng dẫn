@@ -1,0 +1,48 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Dữ liệu hướng dẫn
+guide_info = {
+    "Cách farm nhanh": """
+- Dùng trái Buddha để có hitbox rộng.
+- Sử dụng vũ khí có stun như Pole v2 hoặc Saber v2.
+- Tìm server ít người để tránh bị phá.
+- Dùng haki và tăng chỉ số melee/sword theo build.
+""",
+    "Cách chọn trái ác quỷ": """
+- Buddha: Farm boss, solo raid.
+- Light: Di chuyển nhanh, farm tốt.
+- Dough/Dragon: PvP mạnh, cần kỹ năng.
+- Magma: Damage cao, dễ kiếm.
+""",
+    "Cách lên Sea 2": """
+- Đạt level 700.
+- Đánh bại boss Ice Admiral trong Ice Castle.
+- Nói chuyện với NPC Detected ở Middle Town.
+- Đi tàu đến Sea 2 qua cánh cổng.
+""",
+    "Cách PvP hiệu quả": """
+- Dùng trái có combo mạnh: Leopard, Dragon, Dough.
+- Tập luyện né chiêu, dùng Geppo và Instinct.
+- Kết hợp trái + kiếm/vũ khí (VD: Sharkman + Dough).
+- Luôn bật haki quan sát và vũ trang.
+"""
+}
+
+# Hàm hiển thị nội dung
+def show_info(topic):
+    info = guide_info.get(topic, "Chưa có thông tin.")
+    messagebox.showinfo(topic, info)
+
+# Giao diện chính
+root = tk.Tk()
+root.title("Hướng Dẫn Chơi Blox Fruits")
+root.geometry("400x400")
+
+tk.Label(root, text="Chọn chủ đề bạn muốn tìm hiểu:", font=("Arial", 14)).pack(pady=15)
+
+for topic in guide_info:
+    tk.Button(root, text=topic, width=30, font=("Arial", 12),
+              command=lambda t=topic: show_info(t)).pack(pady=10)
+
+root.mainloop()
